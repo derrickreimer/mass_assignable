@@ -21,6 +21,11 @@ module MassAssignable
       @mass_assignable_attributes = attributes
     end
     
+    # Internal: The Array of Symbols representing attributes that are
+    # mass assignable. This property is defined by the attr_assignable
+    # method.
+    #
+    # Returns an Array or nil.
     def mass_assignable_attributes
       @mass_assignable_attributes
     end
