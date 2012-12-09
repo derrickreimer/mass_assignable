@@ -4,30 +4,22 @@ module MassAssignable
   end
   
   module ClassMethods
-    # Public: Accepts a list of symbols representing instance methods
-    # that allow mass-assignment.
-    #
-    # *attributes - An Array of symbols.
-    #
-    # Returns nothing.
-    # Raises TypeError is attributes are not symbols.
-    def attr_assignable(*attributes)
-      attributes.each do |a| 
-        unless a.is_a?(Symbol)
-          raise TypeError, "Attributes must be Symbols"
-        end
-      end
-      
-      @mass_assignable_attributes = attributes
-    end
-    
     # Internal: The Array of Symbols representing attributes that are
     # mass assignable. This property is defined by the attr_assignable
     # method.
     #
     # Returns an Array or nil.
-    def mass_assignable_attributes
-      @mass_assignable_attributes
+    attr_accessor :mass_assignable_attributes
+    
+    # Public: Accepts a list of symbols representing instance methods
+    # that allow mass-assignment.
+    #
+    # *attributes - An Array of symbols or strings.
+    #
+    # Returns nothing.
+    # Raises TypeError is attributes are not symbols.
+    def attr_mass_assignable(*attributes)
+      self.mass_assignable_attributes = attributes
     end
   end
   
