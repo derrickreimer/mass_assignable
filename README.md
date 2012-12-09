@@ -20,7 +20,55 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Simply include `MassAssignable` in your class and specify mass assignable
+attributes using `attr_mass_assignable`. Any attributes not specified
+will not be mass assignable.
+
+```ruby
+require 'mass_assignable' # not needed with Rails
+
+class Person
+  include MassAssignable
+  
+  attr_accessor :name, :age, :height
+  attr_mass_assignable :name, :age
+end
+```
+
+Then, mass assignment is as easy as calling `attributes=`.
+
+```ruby
+person = Person.new
+person.attributes = { :name => "Derrick", :age => 24, :height => 77 }
+
+person.name
+# => "Derrick"
+
+person.age
+# => 24
+
+person.height
+# => nil
+```
+
+Notice that `#height` is nil, because we didn't include it in our call to
+`attr_mass_assignable`.
+
+If you want an error to be raised when invalid mass assignment is attempted,
+simply use `attr_mass_assignable!`.
+
+```ruby
+class ParanoidPerson
+  include MassAssignable
+  
+  attr_accessor :name, :age, :height
+  attr_mass_assignable! :name, :age
+end
+
+person = ParanoidPerson.new
+person.attributes = { :height => 77 }
+# => Raises a RuntimeError
+```
 
 ## Contributing
 
