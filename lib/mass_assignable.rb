@@ -9,7 +9,11 @@ module MassAssignable
     # method.
     #
     # Returns an Array or nil.
-    attr_accessor :mass_assignable_attributes
+    attr_writer :mass_assignable_attributes
+    
+    def mass_assignable_attributes
+      @mass_assignable_attributes ||= []
+    end
     
     # Public: Accepts a list of symbols representing instance methods
     # that allow mass-assignment.
@@ -19,7 +23,7 @@ module MassAssignable
     # Returns nothing.
     # Raises TypeError is attributes are not symbols.
     def attr_mass_assignable(*attributes)
-      self.mass_assignable_attributes = attributes
+      self.mass_assignable_attributes = attributes || []
     end
   end
   

@@ -19,6 +19,11 @@ class MassAssignableTest < Test::Unit::TestCase
     should "set mass assignable attributes" do
       assert_equal [:name, :age, :height], Person.mass_assignable_attributes
     end
+    
+    should "set mass assignable attribute to an empty array if not called" do
+      assert BlankClass.mass_assignable_attributes.is_a?(Array)
+      assert BlankClass.mass_assignable_attributes.empty?
+    end
   end
   
   context "#attributes=" do
