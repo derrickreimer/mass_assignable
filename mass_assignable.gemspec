@@ -4,12 +4,12 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |gem|
   gem.name          = "mass_assignable"
-  gem.version       = "0.1.0"
+  gem.version       = "1.0.0"
   gem.authors       = ["Derrick Reimer"]
   gem.email         = ["derrickreimer@gmail.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
-  gem.homepage      = ""
+  gem.description   = %q{Add Rails-like mass assignment to any Ruby object}
+  gem.summary       = %q{MassAssignable provides mass assignment functionality for any Ruby object.}
+  gem.homepage      = "https://github.com/djreimer/mass_assignable"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
