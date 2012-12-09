@@ -11,6 +11,16 @@ class MassAssignableTest < Test::Unit::TestCase
     attr_assignable :name, :age, :height
   end
   
+  class BlankClass
+    include MassAssignable
+  end
+  
+  context ".attr_assignable" do
+    should "raise TypeError when attributes are not Symbols" do
+      assert_raises(TypeError) { BlankClass.attr_assignable "name" }
+    end
+  end
+  
   context "#attributes=" do
     should "set attribute values" do
       person = Person.new
