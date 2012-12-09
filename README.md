@@ -1,6 +1,8 @@
 # MassAssignable
 
-TODO: Write a gem description
+MassAssignable is a simple gem that adds Rails-like mass-assignment behavior
+to ordinary Ruby objects. This gem has no external dependencies and works
+everywhere.
 
 ## Installation
 
