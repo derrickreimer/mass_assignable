@@ -8,7 +8,7 @@ Gem::Specification.new do |gem|
   gem.authors       = ["Derrick Reimer"]
   gem.email         = ["derrickreimer@gmail.com"]
   gem.description   = %q{Add Rails-like mass assignment to any Ruby object}
-  gem.summary       = %q{MassAssignable provides mass assignment functionality for any Ruby object.}
+  gem.summary       = %q{MassAssignable provides mass assignment functionality to any Ruby object.}
   gem.homepage      = "https://github.com/djreimer/mass_assignable"
 
   gem.files         = `git ls-files`.split($/)
